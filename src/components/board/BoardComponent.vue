@@ -6,13 +6,12 @@
 			v-for="player in players"
 			:player="player"
 			v-bind:key="player.id"
-			:class="'row ' + player.color"
 			:style="getBasePosition(player.id)"
 		></BaseComponent>
 		<HomeComponent
 			v-for="player in players"
-			:key="player.id"
 			:player="player"
+			:key="player.id"
 			:style="getHomePosition(player.id)"
 		></HomeComponent>
 		<FieldComponent
@@ -43,27 +42,24 @@ export default {
 		BaseComponent,
 		FieldComponent,
 	},
-	props: {
-		player: Object,
-	},
 
 	data: function () {
 		return {
 			players: [
 				{
-					id: "1",
+					id: 1,
 					color: "red",
 				},
 				{
-					id: "2",
+					id: 2,
 					color: "green",
 				},
 				{
-					id: "3",
+					id: 3,
 					color: "blue",
 				},
 				{
-					id: "4",
+					id: 4,
 					color: "yellow",
 				},
 			],
@@ -102,47 +98,38 @@ export default {
 		getBasePosition: function (playerId) {
 			switch (playerId) {
 				case 1:
-					return "grid-row: 6 /span 2; grid-column 2 / span 2;";
+					return "grid-row: 2 / span 2; grid-column: 2 / span 2;";
 				case 2:
-					return "grid-row: -4 /span 2; grid-column 6 / span 2;";
+					return "grid-row: 2 / span 2; grid-column: -4 / span 2;";
 				case 3:
-					return "grid-row: 6 /span 2; grid-column 2 / span 2;";
+					return "grid-row: -4 / span 2; grid-column: -4 / span 2;";
 				case 4:
-					return "grid-row: 7 /span 2; grid-column 6 / span 2;";
+					return "grid-row: -4 / span 2; grid-column: 2 / span 2;";
 			}
 		},
+
 		getHomePosition: function (playerId) {
 			switch (playerId) {
 				case 1:
-					return "grid-row: 6 /span 1; grid-column 2 / span 4;";
+					return "grid-row: 6 /span 1; grid-column: 2 / span 4;";
 				case 2:
-					return "grid-row: 2 /span 4; grid-column 6 / span 1;";
+					return "grid-row: 2 /span 4; grid-column: 6 / span 1;";
 				case 3:
-					return "grid-row: 6 /span 1; grid-column 2 / span 4;";
+					return "grid-row: 6 /span 1; grid-column: 7 / span 4;";
 				case 4:
-					return "grid-row: 7 /span 4; grid-column 6 / span 1;";
+					return "grid-row: 7 /span 4; grid-column: 6 / span 1;";
 			}
 		},
 	},
 };
 </script>
 
-<style>
+<style scoped>
 .board-container {
 	display: grid;
 	grid-template-columns: repeat(11, 1fr);
 	grid-template-rows: repeat(11, 1fr);
 	width: min-content;
 	margin: auto;
-}
-
-/* .base-container {
-	grid-column: 2 / span 2;
-	grid-row: 2 / span 2;
-} */
-
-.home-container {
-	display: flex;
-	flex-wrap: wrap;
 }
 </style>

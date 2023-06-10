@@ -1,21 +1,30 @@
 <!-- @format -->
 
 <template>
-	<SlotComponent
-		class="home-container"
-		v-for="slot in 4"
-		:key="slot"
-		:color="player.color"
-	></SlotComponent>
+	<div class="home-container">
+		<SlotComponent
+			v-for="slot in 4"
+			:key="slot"
+			:color="player.color"
+		></SlotComponent>
+	</div>
 </template>
 <script>
 import SlotComponent from "./SlotComponent.vue";
 
 export default {
-	components: { SlotComponent },
+	components: {
+		SlotComponent,
+	},
 	props: {
 		player: Object,
 	},
 };
 </script>
-<style lang="css"></style>
+<style lang="css">
+.home-container {
+	display: flex;
+	flex-wrap: wrap;
+	/* flex-direction: row-reverse; */
+}
+</style>
