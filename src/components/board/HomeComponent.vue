@@ -2,6 +2,7 @@
 
 <template>
 	<SlotComponent
+		class="home-container"
 		v-for="slot in 4"
 		:key="slot"
 		:color="player.color"

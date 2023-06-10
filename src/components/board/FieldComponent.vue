@@ -1,7 +1,7 @@
 <!-- @format -->
 
 <template lang="html">
-	<SlotComponent :color="color"></SlotComponent>
+	<SlotComponent :color="color" :fieldId="fieldId"></SlotComponent>
 </template>
 <script>
 import SlotComponent from "./SlotComponent.vue";

@@ -1,6 +1,6 @@
 <!-- @format -->
 <template>
-	<div :class="' slot ' + color"></div>
+	<div :class="' slot ' + color">{{ fieldId }}</div>
 </template>
 <script>
 export default {
